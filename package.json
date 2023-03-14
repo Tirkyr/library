@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=app nodemon -L app.js",
-    "lint": "eslint app.js"
+    "start": "cross-env DEBUG=app,app:* nodemon -L app.js",
+    "lint": "eslint app.js src/routes/*",
+    "lint:fix": "eslint --fix app.js src/routes/*"
   },
   "author": "",
   "license": "ISC",
@@ -17,11 +18,13 @@
     "ejs": "^2.7.4",
     "express": "^4.18.2",
     "jquery": "^3.6.3",
+    "mongodb": "3.0.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.21",
     "pug": "^2.0.4"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.27.5"
